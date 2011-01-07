@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sql>
+<datatypes db="sqlite">
+	<group label="Affinity">
+		<type label="Text" default="" length="1" sql="TEXT" quote="'" color="rgb(255,200,200)"/>
+		<type label="Numeric" default="0" length="0" sql="NUMERIC" quote="" color="rgb(238,238,170)"/>
+		<type label="Integer" default="0" length="0" sql="INTEGER" quote="" color="rgb(238,238,170)"/>
+		<type label="Real" default="0" length="0" sql="REAL" quote="" color="rgb(238,238,170)"/>
+		<type label="None" default="" length="0" sql="NONE" quote="" color="rgb(200,255,200)"/>
+	</group>
+</datatypes><table x="355" y="315" name="Events">
+<row name="Event_ID" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Time_Date" null="1" autoincrement="0">
+<datatype>TEXT(40)</datatype>
+<default>NULL</default></row>
+<row name="Action_ID_Actions" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Actions" row="Action_ID" />
+</row>
+<row name="Location_ID_Location" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Location" row="Location_ID" />
+</row>
+<key type="PRIMARY" name="">
+<part>Event_ID</part>
+</key>
+</table>
+<table x="523" y="154" name="Profiles">
+<row name="Profile_ID" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+<relation table="Profiles_Tags" row="Profile_ID" />
+</row>
+<row name="OFF/ON" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Desc" null="1" autoincrement="0">
+<datatype>TEXT(130)</datatype>
+<default>NULL</default></row>
+<row name="Public/Private" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="User_ID" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="User_Nr" null="0" autoincrement="0">
+<datatype>NUMERIC</datatype>
+</row>
+<row name="User_Name" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
+</row>
+<row name="Event_ID_Events" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Events" row="Event_ID" />
+</row>
+<key type="PRIMARY" name="">
+<part>Profile_ID</part>
+</key>
+</table>
+<table x="669" y="155" name="Profiles_Tags">
+<row name="Profile_ID" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Tags_ID" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Tags" row="Tag_ID" />
+</row>
+<key type="PRIMARY" name="Tags_ID">
+<part>Profile_ID</part>
+<part>Tags_ID</part>
+</key>
+</table>
+<table x="219" y="290" name="Actions">
+<row name="Action_ID" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Alert_ID_Alerts" null="0" autoincrement="0">
+<datatype>NUMERIC</datatype>
+<relation table="Alert" row="Alert_ID" />
+<relation table="Alert" row="Alert_ID" />
+</row>
+<row name="Wi-Fi(ON/OFF)" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="GPS(ON/OFF)" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Action_ID</part>
+</key>
+</table>
+<table x="841" y="179" name="Tags">
+<row name="Tag_ID" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Tag" null="0" autoincrement="0">
+<datatype>TEXT(25)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Tag_ID</part>
+</key>
+</table>
+<table x="219" y="435" name="Location">
+<row name="Location_ID" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Lon" null="0" autoincrement="0">
+<datatype>REAL</datatype>
+</row>
+<row name="Lat" null="0" autoincrement="0">
+<datatype>REAL</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Location_ID</part>
+</key>
+</table>
+<table x="100" y="312" name="Alert">
+<row name="Alert_ID" null="0" autoincrement="1">
+<datatype>NUMERIC</datatype>
+</row>
+<row name="Title" null="0" autoincrement="0">
+<datatype>TEXT(25)</datatype>
+</row>
+<row name="Volume" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Vibrator" null="0" autoincrement="0">
+<datatype>NUMERIC</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Alert_ID</part>
+</key>
+</table>
+<table x="365" y="131" name="Bookmarks">
+<row name="Bookmark_ID" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Profile_ID" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Profiles" row="Profile_ID" />
+</row>
+<row name="Date_Time" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>'NULL'</default></row>
+<key type="PRIMARY" name="">
+<part>Bookmark_ID</part>
+</key>
+</table>
+</sql>
+
