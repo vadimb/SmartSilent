@@ -47,13 +47,15 @@ public class ProfilesContract {
 	interface EventColumns {
 		String EVENT_ID = "event_id";
 		String DATE_TIME = "date_time";
+		String ACTION_ID="action_id";
+		String LOCATION_ID="location_id";
 	}
 
 	interface ActionColumns {
 		String ACTION_ID = "action_id";
 		String WiFi_ON_OR_OFF = "wifi_on_or_off";
 		String GPS_ON_OR_OFF = "gps_on_or_off";
-
+        String Alert_ID="alert_id";
 	}
     
 	interface LocationColumns {		
@@ -72,6 +74,7 @@ public class ProfilesContract {
 	interface BookmarkColumns {
 		String BOOKMARK_ID = "bookmark_id";
 		String DATE_TIME = "date_time";
+		String PROFILE_ID="profile_id";
 	}
 	
 	interface TagColumns {
