@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World!</string>
-    <string name="app_name">SmartSilent</string>
-</resources>
+	<string name="app_name">SmartSilent</string>
+	<string name="WelcomeText">Welcome to SmartSilent Android application !\n
+	\nWe created this application because we believe that
+		phones should help people bring	accountability to values such as communication and
+		respect among human	beings.\n
+		\nWe propose you SmartSilent as a practice to enhance this values.\n
+		\nFor more information check our site at
+		</string>   
+     
+     <string name="WelcomeTextNext">
+     \n\nTouch Next to select a Google account to sign in to SmartSilent.</string> 
+     
+     </resources>

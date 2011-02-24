@@ -28,9 +28,8 @@
 </key>
 </table>
 <table x="523" y="154" name="Profiles">
-<row name="Profile_ID" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-<relation table="Profiles_Tags" row="Profile_ID" />
+<row name="Profile_ID" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
 </row>
 <row name="OFF/ON" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -42,13 +41,11 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="User_ID" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-</row>
-<row name="User_Nr" null="0" autoincrement="0">
-<datatype>NUMERIC</datatype>
-</row>
-<row name="User_Name" null="0" autoincrement="0">
 <datatype>TEXT</datatype>
+<relation table="Users" row="User_ID" />
+</row>
+<row name="Users" null="0" autoincrement="0">
+<datatype>NUMERIC</datatype>
 </row>
 <row name="Event_ID_Events" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -56,19 +53,6 @@
 </row>
 <key type="PRIMARY" name="">
 <part>Profile_ID</part>
-</key>
-</table>
-<table x="669" y="155" name="Profiles_Tags">
-<row name="Profile_ID" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-</row>
-<row name="Tags_ID" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="Tags" row="Tag_ID" />
-</row>
-<key type="PRIMARY" name="Tags_ID">
-<part>Profile_ID</part>
-<part>Tags_ID</part>
 </key>
 </table>
 <table x="219" y="290" name="Actions">
@@ -86,19 +70,11 @@
 <row name="GPS(ON/OFF)" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 </row>
+<row name="ID" null="0" autoincrement="1">
+<datatype>TEXT</datatype>
+</row>
 <key type="PRIMARY" name="">
 <part>Action_ID</part>
-</key>
-</table>
-<table x="841" y="179" name="Tags">
-<row name="Tag_ID" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-</row>
-<row name="Tag" null="0" autoincrement="0">
-<datatype>TEXT(25)</datatype>
-</row>
-<key type="PRIMARY" name="">
-<part>Tag_ID</part>
 </key>
 </table>
 <table x="219" y="435" name="Location">
@@ -106,9 +82,6 @@
 <datatype>INTEGER</datatype>
 </row>
 <row name="Lon" null="0" autoincrement="0">
-<datatype>REAL</datatype>
-</row>
-<row name="Lat" null="0" autoincrement="0">
 <datatype>REAL</datatype>
 </row>
 <key type="PRIMARY" name="">
@@ -132,20 +105,18 @@
 <part>Alert_ID</part>
 </key>
 </table>
-<table x="365" y="131" name="Bookmarks">
-<row name="Bookmark_ID" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<table x="675" y="247" name="Users">
+<row name="User_ID" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
 </row>
-<row name="Profile_ID" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="Profiles" row="Profile_ID" />
-</row>
-<row name="Date_Time" null="0" autoincrement="0">
+<row name="Name" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>'NULL'</default></row>
+<row name="Type" null="0" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
-<part>Bookmark_ID</part>
+<part>User_ID</part>
 </key>
 </table>
 </sql>
-
