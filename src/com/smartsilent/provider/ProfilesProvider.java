@@ -57,15 +57,35 @@ public class ProfilesProvider extends ContentProvider {
 		switch (match) {
 		case USERS: {			
 			long row_ID = db.insert(ProfilesDatabase.Tables.USERS, null, values);
-			if (row_ID > 0) {
+			if (row_ID >= 0) {
 				Uri userUri = ContentUris.withAppendedId(
 						ProfilesContract.Users.CONTENT_URI, row_ID);
 				getContext().getContentResolver().notifyChange(userUri, null);
 				return userUri;
 			}
+			if(LOGV)
+				Log.e(TAG, "Couldn't add a row into " + uri);
 			throw new SQLException("Couldn't add a row into " + uri);
+			
 		}
+		
+		case PROFILES: {			
+			long row_ID = db.insert(ProfilesDatabase.Tables.PROFILES, null, values);
+			if (row_ID > 0) {
+				Uri userUri = ContentUris.withAppendedId(
+						ProfilesContract.Profiles.CONTENT_URI, row_ID);
+				getContext().getContentResolver().notifyChange(userUri, null);
+				return userUri;
+			}
+			if(LOGV)
+				Log.e(TAG, "Couldn't add a row into " + uri);
+			throw new SQLException("Couldn't add a row into " + uri);			
+		}		
+		
 		default:
+			if(LOGV)
+				Log.e(TAG, "Couldn't add a row into " + uri	+ ".Unknown URI.");
+			
 			throw new IllegalArgumentException("Couldn't add a row into " + uri
 					+ ".Unknown URI.");
 		}
@@ -85,8 +105,7 @@ public class ProfilesProvider extends ContentProvider {
 		int match=sUriMatcher.match(uri);
 		switch (match) {
 		case PROFILES: {
-			qBuilder.setTables("profiles");
-
+			qBuilder.setTables(ProfilesDatabase.Tables.PROFILES);
 			break;
 		}
 		case USERS: {

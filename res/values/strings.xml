@@ -11,5 +11,5 @@
      
      <string name="WelcomeTextNext">
      \n\nTouch Next to select a Google account to sign in to SmartSilent.</string> 
-     
+     <string name="description_home">Home</string>
      </resources>
